@@ -9,6 +9,7 @@ EGIT_COMMIT="b8b3035500eb2311aab366aaa3e5069ee422e8e3"
 DESCRIPTION="A cross-platform tool to restore Apple devices from IPSW files."
 HOMEPAGE="http://libimobiledevice.org"
 SRC_URI="https://github.com/libimobiledevice/idevicerestore/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/idevicerestore-${EGIT_COMMIT}"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0/6"
