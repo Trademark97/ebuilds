@@ -14,7 +14,7 @@ EGIT_COMMIT="${PV}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="x86 amd64"
+KEYWORDS="~amd64"
 
 IUSE="alsa i3wm mpd github +network"
 RDEPEND="
@@ -23,10 +23,11 @@ RDEPEND="
 	x11-base/xcb-proto
 	x11-libs/xcb-util-wm
 	x11-libs/xcb-util-image
-	|| ( x11-wm/i3 x11-wm/i3-gaps )
 
 	alsa? ( media-libs/alsa-lib )
-	i3wm? ( dev-libs/jsoncpp )
+	i3wm? ( dev-libs/jsoncpp
+		|| ( x11-wm/i3 x11-wm/i3-gaps )
+		)
 	mpd? ( media-libs/libmpdclient )
 	github? ( net-misc/curl )
 	network? ( net-wireless/wireless-tools )
