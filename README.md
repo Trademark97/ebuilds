@@ -14,7 +14,7 @@ Installs: **Yes**
 Test: **_Successful_**  
 ## x11-misc
 ### x11-misc/polybar
-Status bar designed to integrate with either i3wm/i3-gaps or polybar. Created by jaagr; uses unofficial forked repositories, so that I could create tags containing commits allowing building against libxcb 1.13 .  
+Status bar designed to integrate with either i3wm/i3-gaps or polybar. Created by jaagr; uses a live ebuild for continuous integration of latest upstream features and bugfixes.
 Tested: **Yes**  
 Builds: **Yes**  
 Installs: **Yes**  
