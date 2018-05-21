@@ -11,6 +11,9 @@
 		<email>tmmonckton@gmail.com</email>
 		<name>Tobias Monckton</name>
 	</maintainer>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
 	<longdescription>
 		libirecovery is a library provided by the libimobiledevice project which implements
 		communication to the iBoot/iBSS system found on Apple's mobile devices (iPhones,
