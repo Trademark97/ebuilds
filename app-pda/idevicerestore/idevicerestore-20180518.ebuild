@@ -4,7 +4,7 @@
 EAPI=6
 inherit autotools flag-o-matic
 
-EGIT_COMMIT="b8b3035500eb2311aab366aaa3e5069ee422e8e3"
+EGIT_COMMIT="5e054e6294fc09e989a98b2336d15c9c9a0baa4c"
 
 DESCRIPTION="A cross-platform tool to restore Apple devices from IPSW files."
 HOMEPAGE="http://libimobiledevice.org"
