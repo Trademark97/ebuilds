@@ -17,7 +17,8 @@ RDEPEND="app-pda/libirecovery:0=
 	app-pda/libplist:0=
 	>=dev-libs/libzip-0.8.0
 	>=net-misc/curl-7.0.0
-	dev-libs/openssl:0="
+	dev-libs/openssl:0=
+	sys-libs/zlib"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
