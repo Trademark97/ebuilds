@@ -13,7 +13,7 @@ S="${WORKDIR}/idevicerestore-${EGIT_COMMIT}"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0/6"
-KEYWORDS=""
+KEYWORDS="~amd64"
 
 RDEPEND="app-pda/libirecovery:0=
 	>=app-pda/libimobiledevice-1.1.6:0=
