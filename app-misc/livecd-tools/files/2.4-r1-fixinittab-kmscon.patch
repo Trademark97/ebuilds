@@ -1,0 +1,56 @@
+--- fixinittab	2018-07-31 15:17:26.362114610 -0500
++++ fixinittab-patched	2018-07-31 15:23:15.435116118 -0500
+Author: Tobias Monckton <tmmonckton@gmail.com>
+Simple patch to replace all but the last two VTYs with kmscon instead of mingetty. This should (hopefully) allow the usage of kmscon by default,
+while keeping mingetty-based VTYs around in case kmscon decides not to work properly for some reason.
+@@ -58,15 +58,22 @@
+ 			MODEL_NAME=$(cat /proc/cpuinfo |grep "model name"|sed 's/.*: //')
+ 			if [ "${MODEL_NAME}" = "UML" ]
+ 			then
+-			    for x in 0 1 2 3 4 5 6
++			    for x in 0 1 2 3 4
+ 			    do
+-				    echo "c${x}:12345:respawn:/sbin/mingetty --noclear --autologin $(id -nu 1000 2>/dev/null || echo root) tty${x}" >> /etc/inittab
++				    echo "c${x}:12345:respawn:/sbin/kmscon --noclear --autologin $(id -nu 1000 2>/dev/null || echo root) tty${x}" >> /etc/inittab
++			    done
++			    for x in 5 6
++			    do
++			           echo "c${x}:12345:respawn:/sbin/mingetty --noclear --autologin $(id -nu 1000 2>/dev/null || echo root) tty${x}" >> /etc/inittab
+ 			    done
+ 			else
+-			    for x in 1 2 3 4 5 6
++			    for x in 1 2 3 4
+ 			    do
+ 				    echo "c${x}:12345:respawn:/sbin/mingetty --noclear --autologin $(id -nu 1000 2>/dev/null || echo root) tty${x}" >> /etc/inittab
+ 			    done
++			    for x in 5 6
++			            echo "c${x}:12345:respawn:/sbin/mingetty --noclear --autologin $(id -nu 1000 2>/dev/null || echo root) tty${x}" >> /etc/inittab
++			    done
+ 			fi
+ 		fi
+ 		if [ -c "/dev/hvc0" ]
+@@ -84,14 +91,20 @@
+ 		then
+ 			if [ "${SECURECONSOLE}" = "yes" ]; then
+ 				echo "c1:12345:respawn:/sbin/mingetty --noclear --autologin $(id -nu 1000 2>/dev/null || echo root) tty1" >> /etc/inittab
+-				for x in 2 3 4 5 6
++				for x in 2 3 4
+ 				do
+-					echo "c${x}:2345:respawn:/sbin/agetty 38400 tty${x} linux" >> /etc/inittab
++					echo "c${x}:2345:respawn:/sbin/kmscon 38400 tty${x} linux" >> /etc/inittab
++				done
++				for x in 5 6
++				        echo "c${x}:2345:respawn:/sbin/mingetty 38400 tty${x} linux" >> /etc/inittab
+ 				done
+ 			else
+-				for x in 1 2 3 4 5 6
++				for x in 1 2 3 4
+ 				do
+-					echo "c${x}:12345:respawn:/sbin/mingetty --noclear --autologin $(id -nu 1000 2>/dev/null || echo root) tty${x}" >> /etc/inittab
++					echo "c${x}:12345:respawn:/sbin/kmscon --noclear --autologin $(id -nu 1000 2>/dev/null || echo root) tty${x}" >> /etc/inittab
++				done
++				for x in 5 6
++					echo "c${x}:12345:respawn:/sbin/kmscon --noclear --autologin $(id -nu 1000 2>/dev/null || echo root) tty${x}" >> /etc/inittab
+ 				done
+ 			fi
+ 		else
