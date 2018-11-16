@@ -15,6 +15,8 @@ KEYWORDS=""
 RDEPEND="app-pda/libirecovery:0=
 	>=app-pda/libimobiledevice-1.1.6:0=
 	app-pda/libplist:0=
+	app-pda/libusbmuxd:0=
+	app-pda/usbmuxd:0=
 	>=dev-libs/libzip-0.8.0
 	>=net-misc/curl-7.0.0
 	dev-libs/openssl:0=
