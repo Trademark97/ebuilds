@@ -4,7 +4,7 @@
 EAPI=6
 inherit autotools flag-o-matic
 
-EGIT_COMMIT="707856d9005a48ee006dfcc7e5424473cf9e7652"
+EGIT_COMMIT="5b0eafc634c294f9c85c7aa756d8f2e2970484c9"
 
 DESCRIPTION="A cross-platform tool to restore Apple devices from IPSW files."
 HOMEPAGE="http://libimobiledevice.org"
@@ -18,6 +18,8 @@ KEYWORDS="~amd64"
 RDEPEND="app-pda/libirecovery:0=
 	>=app-pda/libimobiledevice-1.1.6:0=
 	app-pda/libplist:0=
+	app-pda/libusbmuxd:0=
+	app-pda/usbmuxd:0=
 	>=dev-libs/libzip-0.8.0
 	>=net-misc/curl-7.0.0
 	dev-libs/openssl:0=
