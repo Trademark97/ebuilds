@@ -11,9 +11,9 @@ EGIT_REPO_URI="https://github.com/libimobiledevice/libirecovery.git"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0/6"
 KEYWORDS=""
-IUSE="udev"
+IUSE="dummy udev"
 
-RDEPEND=">=dev-libs/libusb-1.0.3:1=
+RDEPEND="!dummy? ( >=dev-libs/libusb-1.0.3:1= )
 	sys-libs/readline:0="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
@@ -26,7 +26,9 @@ src_prepare() {
 }
 
 src_configure() {
-	econf $(use_with udev)
+	econf \
+	$(use_with udev) \
+	$(use_with dummy)
 }
 
 src_install() {
